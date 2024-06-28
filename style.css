@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Space Mono", monospace;
+}
+
+body{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(185, 41%, 84%);
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-size: 12px;
+}
+.title{
+    text-align: center;
+}
+.container{
+    height: auto;
+    background-color: #fefeff;
+    padding: 20px;
+    display: flex;
+
+}
+.input-block{
+    width: 300px;
+}
+.input{
+    border: transparent 1px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-block>*{
+    margin-bottom: 20px;
+}
+.form-group>*{
+    margin: 10px 0;
+}
+.input>input{
+    height: 24px;
+    text-align: right;
+    font-weight: 600;
+    width: 250px;
+    margin: 3px 0;
+    font-size: 20px;
+    background-color: inherit;
+}
+.input>input:focus{
+   outline: none;
+}
+.input>img{
+    height: 15px;
+    margin-right: 10px;
+}
+.tip_percentage>p{
+    margin: 10px 0;
+    font-size: 12px;
+}
+.tip_buttons{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+.tip_buttons>*{
+    margin-left: 5px;
+    margin-bottom: 10px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.tip_buttons>button{
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+}
+.tip_buttons>button:hover{
+    background-color: #f3f8fb;
+    color: hsl(183, 100%, 15%)
+}
+.tip_buttons>input{
+    border: transparent 1px;
+    padding: 5px 10px;
+    text-align: right;
+    background-color: hsl(185, 41%, 97%);
+}
+.output-block{
+    height: auto;
+    width: 300px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.output-block{
+    background-color: hsl(183, 100%, 15%);
+    margin-left: 20px;
+    height: 320px;
+    padding: 30px;
+}
+.output-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+    color: hsl(184, 14%, 56%);
+}
+.label>b{
+    color: white;
+    font-size: 16px;
+}
+.label{
+    font-size: 12px;
+}
+button{
+    cursor:pointer
+}
+.output-block>button{
+    width: 100%;
+    height: 40px;
+    background-color: #27c3ad;
+    color: #0b6666;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+.output-block>button:hover{
+    background-color: hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%)
+}
+@media screen and (max-width: 800px) {
+    .container{
+        flex-direction: column;
+    }
+    
+    .output-block{
+        margin: 0;
+    }
+}
