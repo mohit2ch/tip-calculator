@@ -36,27 +36,27 @@
             <label for="billInput">Bill</label><br />
             <div class="input">
               <img src="./images/icon-dollar.svg" alt="" />
-              <input type="number" placeholder="0.00"/>
+              <input type="number" placeholder="0.00" id="billInput" onchange="focusHandler()"/>
             </div>
           </div>
 
           <div class="tip_percentage">
             <p>Select Tip %</p>
             <div class="tip_buttons">
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>25%</button>
-              <button>50%</button>
-              <input type="number" />
+              <button onclick="clickHandler(this)">5%</button>
+              <button onclick="clickHandler(this)">10%</button>
+              <button onclick="clickHandler(this)">15%</button>
+              <button onclick="clickHandler(this)">25%</button>
+              <button onclick="clickHandler(this)">50%</button>
+              <input type="number" placeholder="Custom" id="tipInput" onchange="focusHandler()"/>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="peopleInput">Number of People</label><br />
+            <label for="peopleInput">Number of People <span id="peopleAlert">Can't be zero</span> </label><br />
             <div class="input">
               <img src="./images/icon-person.svg" alt="" />
-              <input type="number" placeholder="0"/>
+              <input type="number" placeholder="0" id="peopleInput" onchange="focusHandler()"/>
             </div>
           </div>
         </div>
@@ -66,16 +66,16 @@
               <b>Tip Amount</b> <br />
               / person
             </div>
-            <h1>$0.00</h1>
+            <h1 id="tipAmount">$0.00</h1>
           </div>
           <div class="output-line">
             <div class="label">
               <b>Total</b> <br />
               / person
             </div>
-            <h1>$0.00</h1>
+            <h1 id="totalAmount">$0.00</h1>
           </div>
-          <button>RESET</button>
+          <button onclick="resetHndler()">RESET</button>
         </div>
       </div>
     </main>
@@ -86,4 +86,37 @@
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
   </body>
+  <script>
+    function focusHandler(){
+
+      const bill = document.getElementById('billInput').value;
+      const people = document.getElementById('peopleInput').value;
+      const tip = document.getElementById('tipInput').value;
+      if(people>0){
+        document.getElementById('peopleAlert').style.display = "none";
+        updateOutput(bill, people, tip);
+      }
+      else{
+        document.getElementById('peopleAlert').style.display = "inline";
+      }
+    }
+    function updateOutput(bill, people, rate){
+      const tip = document.getElementById('tipAmount');
+      const total = document.getElementById('totalAmount');
+      // console.log(billbill*tip);
+      tip.innerHTML = `\$${Number(bill*rate/(100*people)).toFixed(2)}`;
+      total.innerHTML = `\$${Number(bill*(rate)/(100*people) + bill/people).toFixed(2)}`;
+    }
+    function clickHandler(ele){
+      const tip = ele.innerHTML;
+      document.getElementById('tipInput').value = ele.innerHTML.substr(0, tip.length-1);
+    }
+    function resetHndler(){
+      const bill = document.getElementById('billInput').value = "";
+      const people = document.getElementById('peopleInput').value = "";
+      const tip = document.getElementById('tipInput').value= "";
+      const billOut = document.getElementById('totalAmount').innerHTML = "$0.00";
+      const tipOut = document.getElementById('tipAmount').innerHTML = "$0.00"
+    }
+  </script>
 </html>

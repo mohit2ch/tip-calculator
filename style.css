@@ -42,7 +42,7 @@ label{
     align-items: center;
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: hsl(189, 41%, 97%);
+    background-color: hsl(189, 41%, 94%);
 }
 
 .input-block>*{
@@ -88,14 +88,14 @@ label{
     color: white;
 }
 .tip_buttons>button:hover{
-    background-color: #f3f8fb;
+    background-color: hsl(189, 41%, 94%);
     color: hsl(183, 100%, 15%)
 }
 .tip_buttons>input{
     border: transparent 1px;
     padding: 5px 10px;
     text-align: right;
-    background-color: hsl(185, 41%, 97%);
+    background-color: hsl(185, 41%, 94%);
 }
 .output-block{
     height: auto;
@@ -148,11 +148,19 @@ button{
     background-color: hsl(185, 41%, 84%);
     color: hsl(183, 100%, 15%)
 }
+#peopleAlert{
+    color: red;
+    margin-left: 60px;
+    display: none;
+}
 @media screen and (max-width: 800px) {
     .container{
         flex-direction: column;
     }
-    
+    .tip_buttons{
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) ;
+    }
     .output-block{
         margin: 0;
     }
